@@ -15,6 +15,7 @@
     <title>Frontend Mentor | Multi-step form</title>
 
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <link rel="stylesheet" href="style.css" />
     <style>
       .attribution {
         font-size: 11px;
@@ -26,7 +27,6 @@
     </style>
   </head>
   <body>
-    
     <div class="container">
       <div class="main">
         <!-- Sidebar start -->
@@ -62,19 +62,27 @@
         </div>
         <!-- Sidebar end -->
         <!-- Step 1 start -->
-        <div class="step-1">
-          <h4>Personal info</h4>
-          <p>Please provide your name, email address, and phone number.</p>
-          <form action="">
-            <label for="name">Name</label>
-            <input type="text" value="Stephen King">
-            <label for="email">Email Address</label>
-            <input type="text" value="stephenking@lorem.com">
-            <label for="phone">Phone Number</label>
-            <input type="text" value="+1 234 567 890">
-            <input type="submit" value="Next Step">
-          </form>
-        </div>
+
+        <form id="form" action="">
+          <div id="step-1">
+            <h4>Personal info</h4>
+            <p>Please provide your name, email address, and phone number.</p>
+            <div id="namelabel">
+              <label for="name">Name</label>
+            </div>
+            <input type="text" id="name" value="Stephen King" />
+            <div id="emaillabel">
+              <label for="email">Email Address</label>
+            </div>
+            <input type="text" id="email" value="stephenking@lorem.com" />
+            <div id="phonelabel">
+              <label for="phone">Phone Number</label>
+            </div>
+            <input type="text" id="phone" value="+1 234 567 890" />
+            <input type="submit" id="submit" value="Next Step" />
+          </div>
+        </form>
+
         <!-- Step 1 end -->
       </div>
     </div>
@@ -87,7 +95,7 @@
     <!-- Step 2 end -->
 
     <!-- Step 3 start -->
-<!-- 
+    <!-- 
     Pick add-ons Add-ons help enhance your gaming experience. Online service
     Access to multiplayer games +$1/mo Larger storage Extra 1TB of cloud save
     +$2/mo Customizable Profile Custom theme on your profile +$2/mo Go Back Next
@@ -119,5 +127,48 @@
         >Frontend Mentor</a
       >. Coded by <a href="#">Your Name Here</a>.
     </div>
+    <script>
+      const form = document.getElementById("form");
+      let name = document.getElementById("name");
+      let email = document.getElementById("email");
+      let phone = document.getElementById("phone");
+
+      name.addEventListener("change", () => {
+        if (name.value === "") {
+          let errorname =
+            "<span class='error errorname'>name couldn't be empty</span>";
+          // name.insertAdjacentHTML("beforebegin", errorname);
+          document
+            .getElementById("namelabel")
+            .insertAdjacentHTML("afterbegin", errorname);
+        } else if (name.value !== "") {
+          document.querySelector(".errorname").remove();
+        }
+      });
+
+      email.addEventListener("change", () => {
+        if (!email.value.includes("@")) {
+          let erroremail =
+            "<span class='error erroremail'>Please enter a valid email address.</span>";
+          document
+            .getElementById("emaillabel")
+            .insertAdjacentHTML("afterbegin", erroremail);
+        } else if (email.value.includes("@")) {
+          document.querySelector(".erroremail").remove();
+        }
+      });
+
+      phone.addEventListener("change", () => {
+        if (phone.value.length < 10) {
+          let phoneerror =
+            "<span class='error phoneerror'>phone number must be 10 numbers</span>";
+          document
+            .getElementById("phonelabel")
+            .insertAdjacentHTML("afterbegin", phoneerror);
+        } else if (phone.value.length == 10) {
+          document.querySelector(".phoneerror").remove();
+        }
+      });
+    </script>
   </body>
 </html>
