@@ -79,12 +79,40 @@
               <label for="phone">Phone Number</label>
             </div>
             <input type="text" id="phone" value="+1 234 567 890" />
-            <input type="submit" id="submit" value="Next Step" />
+            <input type="button" id="submit" value="Next Step" />
           </div>
           <div id="step-2">
             <h4>Select your plan</h4>
             <p>You have the option of monthly or yearly billing.</p>
             
+           <div id="Arcade">
+            <img src="./assets/images/icon-arcade.svg" alt="">
+            <p>Arcade</p>
+            <span>9$/mo</span>
+           </div>
+           <div id="Advanced">
+            <img src="./assets/images/icon-advanced.svg" alt="">
+            <p>Advanced</p>
+            <span>12$/mo</span>
+           </div>
+           <div id="pro">
+            <img src="./assets/images/icon-pro.svg" alt="">
+            <p>Advanced</p>
+            <span>15$/mo</span>
+           </div>
+            <div class="switch-container">
+              <div class="switch-main">
+                <p class="monthly-p" style="color:var(--Marine-blue)">monthly</p>
+                <div class="toggle-switch monthly" onclick="switch_()">
+                  <div class="toggle-button" ></div>
+                </div>
+                <p class="yearly-p">yearly</p>
+              </div>
+             
+            </div>
+              <h5 id="goback"><a href="">Go Back</a></h5>
+              <input type="button" id="step2" value="Next Step" />
+           
           </div>
         </form>
 
@@ -132,6 +160,7 @@
         >Frontend Mentor</a
       >. Coded by <a href="#">Your Name Here</a>.
     </div>
+    <script src="script.js"></script>
     <script>
       const form = document.getElementById("form");
       let name = document.getElementById("name");

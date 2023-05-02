@@ -47,7 +47,7 @@
     width: 340px;
   }
 }
-body{
+body {
   background: var(--Magnolia);
 }
 
@@ -106,11 +106,14 @@ body{
   font-size: 12px;
 }
 
-#step-1 h4 {
+#step-1 h4,
+#step-2 h4 {
   font-size: 28px;
   font-family: "ubuntu-bold";
 }
-#step-1 p {
+#step-1 p,
+#step-2 p,
+#Arcade span {
   font-size: 16px;
   color: var(--Cool-gray);
   margin-bottom: 30px;
@@ -144,7 +147,7 @@ form {
   margin-bottom: 30px;
 }
 
-input[type="submit"] {
+input[type="button"] {
   width: 30%;
   height: 40px;
   border-radius: 10px;
@@ -155,11 +158,121 @@ input[type="submit"] {
   float: right;
 }
 
-
-.error{
+.error {
   margin-bottom: 10px !important;
   color: red;
   display: block;
   float: right;
   font-size: 14px;
+}
+
+#step-1 {
+  display: none;
+}
+
+#Arcade p,
+#Advanced p,
+#pro p {
+  margin-bottom: 5px;
+  font-weight: 700 !important;
+  color: var(--Marine-blue);
+}
+
+#Arcade img,
+#Advanced img,
+#pro img {
+  margin-bottom: 30px;
+}
+#Arcade,
+#Advanced,
+#pro {
+  border: 1px solid var(--Light-gray);
+  padding: 20px;
+  border-radius: 15px;
+  width: 60%;
+  margin: 10px;
+}
+#Arcade:hover,
+#Advanced:hover,
+#pro:hover{
+  border-color: var(--Marine-blue);
+
+}
+#step-2 {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    "title title title"
+    "desc desc desc"
+    "arcade advanced pro"
+    "switch switch switch"
+    "goback goback step2";
+}
+#step-2 h4 {
+  grid-area: title;
+}
+#step-2 p {
+  grid-area: desc;
+}
+#Arcade {
+  grid-area: arcade;
+}
+#Advanced {
+  grid-area: advanced;
+}
+#pro {
+  grid-area: pro;
+}
+#step2 {
+  width: 100%;
+  grid-area: step2;
+}
+#goback {
+  margin-top: 65px;
+  grid-area: goback;
+}
+#goback a{
+text-decoration: none;
+color: var(--Marine-blue);
+}
+.switch-container {
+  grid-area: switch;
+  background: var(--Alabaster);
+  height: 40px;
+  border-radius: 15px;
+}
+.switch-container .switch-main {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  transform: translateY(50%);
+}
+.switch-container p {
+  margin: 0 !important;
+}
+/* .monthly-p{
+color: var(--Marine-blue) !important;
+} */
+.toggle-switch {
+  width: 50px;
+  height: 20px;
+  background: var(--Marine-blue);
+  border-radius: 15px;
+}
+
+.toggle-button {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--Alabaster);
+  transform: translateY(3px);
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.yearly .toggle-button {
+  float: right;
+}
+.monthly .toggle-button {
+  float: left;
 }
